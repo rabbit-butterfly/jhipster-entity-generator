@@ -1,26 +1,23 @@
 # jhipster-entity-generator
-jhipster项目 实体生成器
+jhipster项目 实体生成器. 
+1. 生成jhipsert 实体
+2. 生成jhipsert Service及实现类
+3. 生成jhipsert page及dto
+4. 生成swagger　参数注释
+5. 还可以生成mybatis对象
 
-<<<<<<< HEAD
 # Quick 使用 
-=======
-# Quick start 
->>>>>>> 2391cd7cfd3e443d68b166ba1e015e8b171a9000
 下载代码
-git clone 
+`git clone  https://github.com/rabbit-butterfly/jhipster-entity-generator.git`
 
 # 环境配置
-<<<<<<< HEAD
 *** 打开`/resources/jeg-mysql.xml`这个文件
-=======
->>>>>>> 2391cd7cfd3e443d68b166ba1e015e8b171a9000
 * 生成目录
 ><xml:variable name="root" select="D:/ds/islamic/doc/code" />
 * 生成包名
 ><xml:variable name="package" select="com.jumore.ds.finace" />
 
 * 生成mybaits对象
-
 >`<javaModelGenerator targetPackage="$package"   targetProject="$root">
     <!-- enableSubPackages:是否让schema作为包的后缀 -->
     <property name="enableSubPackages" value="true" />
@@ -53,7 +50,6 @@ git clone
       <property name="rootClass" value="IRequest" />
 </javaBusinessModelGenerator><p>
 
-<<<<<<< HEAD
 ##  生成jhipster jdl 配置文件
 >`<uiGenerator type="JDL" targetPackage="jhipster"
         targetProject="$root" implementationPackage="test">
@@ -67,26 +63,18 @@ git clone
 
 
 ## 将生成的单个jh文件合并为一个文件
->> 使用dos命令　 cd jhipster <br>
->>      &&&&&&&&&&&&    type *.jh  ../allEnt.jh
+> 使用dos命令　 cd jhipster <br>
+>             type *.jh  ../allEnt.jh
 ## 生成jh基础类
->> jhipsert import-jdl allEnt.jh
+> jhipsert import-jdl allEnt.jh
 
-=======
 * 生成jhipster jdl 配置文件
 > <uiGenerator type="JDL" targetPackage="jhipster"
-			targetProject="$root" implementationPackage="test">
-		</uiGenerator>
->>>>>>> 2391cd7cfd3e443d68b166ba1e015e8b171a9000
-
-
+		targetProject="$root" implementationPackage="test">
+	</uiGenerator>
+##　最后可以将文件拷贝到项目中
 
 # 关于我
 欢迎交流问题，可加2205380769，一起探讨交流问题
 我的博客地址
 个人域名
-2018/04/08更新
-<<<<<<< HEAD
-=======
-
->>>>>>> 2391cd7cfd3e443d68b166ba1e015e8b171a9000
