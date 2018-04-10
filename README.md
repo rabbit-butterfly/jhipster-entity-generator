@@ -15,7 +15,7 @@ jhipster项目 实体生成器.
 * 生成目录
 ><xml:variable name="root" select="D:/ds/islamic/doc/code" />
 * 生成包名
-><xml:variable name="package" select="com.jumore.ds.finace" />
+><xml:variable name="package" select="com.fan" />
 
 * 生成mybaits对象
 >`<javaModelGenerator targetPackage="$package"   targetProject="$root">
