@@ -64,8 +64,8 @@ jhipster项目 实体生成器.
 
 ## 将生成的单个jh文件合并为一个文件
 > 使用dos命令　 cd jhipster <br>
->             type *.jh  ../allEnt.jh
-## 生成jh基础类
+>             　type *.jh  ../allEnt.jh
+## 生成jh命令生成基础类
 > jhipsert import-jdl allEnt.jh
 
 * 生成jhipster jdl 配置文件
