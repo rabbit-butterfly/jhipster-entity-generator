@@ -10,6 +10,8 @@ jhipster项目 实体生成器.
 下载代码
 `git clone  https://github.com/rabbit-butterfly/jhipster-entity-generator.git`
 
+本工程需要依赖mybatis-generator-core.jar,lib目录已收录，
+需要源码请于下地址下载　https://github.com/hackpros/mybatis-generator-core.git
 # 环境配置
 *** 打开`/resources/jeg-mysql.xml`这个文件
 * 生成目录
@@ -75,6 +77,8 @@ jhipster项目 实体生成器.
 ##　最后可以将文件拷贝到项目中
 
 # 关于我
-欢迎交流问题，可加2205380769，一起探讨交流问题
-我的博客地址
-个人域名
+欢迎交流问题，可加2205380769，一起探讨交流问题<br>
+我的博客地址<br>
+个人域名<br>
+QQ群:
+#如果本文能带给你一点帮助，请给我一个star

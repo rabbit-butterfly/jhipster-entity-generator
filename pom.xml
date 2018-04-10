@@ -17,7 +17,7 @@
 	<dependencies>
 
 		<!--这里使用本地lib的 mybatis-generator-core-1.3.3.jar -->
-		<!--源码稍后奉上 http://-->
+		<!--源码稍后奉上 https://github.com/hackpros/mybatis-generator-core.git-->
 		<!-- <dependency>
 			<groupId>fan</groupId>
 			<artifactId>mybatis-generator-core</artifactId>
