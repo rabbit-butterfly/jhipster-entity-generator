@@ -1,12 +1,19 @@
 # jhipster-entity-generator
 jhipster项目 实体生成器
 
+<<<<<<< HEAD
 # Quick 使用 
+=======
+# Quick start 
+>>>>>>> 2391cd7cfd3e443d68b166ba1e015e8b171a9000
 下载代码
 git clone 
 
 # 环境配置
+<<<<<<< HEAD
 *** 打开`/resources/jeg-mysql.xml`这个文件
+=======
+>>>>>>> 2391cd7cfd3e443d68b166ba1e015e8b171a9000
 * 生成目录
 ><xml:variable name="root" select="D:/ds/islamic/doc/code" />
 * 生成包名
@@ -46,6 +53,7 @@ git clone
       <property name="rootClass" value="IRequest" />
 </javaBusinessModelGenerator><p>
 
+<<<<<<< HEAD
 ##  生成jhipster jdl 配置文件
 >`<uiGenerator type="JDL" targetPackage="jhipster"
         targetProject="$root" implementationPackage="test">
@@ -64,6 +72,12 @@ git clone
 ## 生成jh基础类
 >> jhipsert import-jdl allEnt.jh
 
+=======
+* 生成jhipster jdl 配置文件
+> <uiGenerator type="JDL" targetPackage="jhipster"
+			targetProject="$root" implementationPackage="test">
+		</uiGenerator>
+>>>>>>> 2391cd7cfd3e443d68b166ba1e015e8b171a9000
 
 
 
@@ -72,3 +86,7 @@ git clone
 我的博客地址
 个人域名
 2018/04/08更新
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2391cd7cfd3e443d68b166ba1e015e8b171a9000
