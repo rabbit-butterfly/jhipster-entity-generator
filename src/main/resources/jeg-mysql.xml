@@ -4,128 +4,133 @@
         "file:///D:/jhipster/mybatis-tools/mybatis-generator-core/src/main/java/org/mybatis/generator/config/xml/mybatis-generator-config_2_0.dtd">
 
 
+<!-- 如果此处变量报错，请直接配置各节点targetPackage， targetProject标签
 <xml:variable name="root" select="D:/ds/islamic/doc/code" />
 <xml:variable name="package" select="com.fan.ds.account" />
+-->
 
 
 <generatorConfiguration>
-	<!-- classPathEntry:数据库的JDBC驱动的jar包地址 -->
-	<!-- <classPathEntry location="f:\lib\ojdbc14.jar" /> -->
-	<!-- <classPathEntry location="/lib/mysql-connector-java-5.1.18-bin.jar" 
-		/> -->
+    <!-- classPathEntry:数据库的JDBC驱动的jar包地址 -->
+    <!-- <classPathEntry location="f:\lib\ojdbc14.jar" /> -->
+    <!-- <classPathEntry location="/lib/mysql-connector-java-5.1.18-bin.jar"
+        /> -->
 
-	<context id="DB2Tables" targetRuntime="MyBatis3">
+    <context id="DB2Tables" targetRuntime="MyBatis3">
 
-		<property name="suppressTypeWarnings" value="true" />
-		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
-		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
-		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
+        <property name="suppressTypeWarnings" value="true"/>
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/>
 
-		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
-			<property name="searchString" value="Example$" />
-			<property name="replaceString" value="QueryHelper" />
-		</plugin>
+        <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+            <property name="searchString" value="Example$"/>
+            <property name="replaceString" value="QueryHelper"/>
+        </plugin>
 
-		<!-- <plugin type="com.shinowit.mybatis.plugin.SelectByPagePlugin" /> -->
-		<!-- <plugin type="com.shinowit.mybatis.plugin.Struts2ActionPlugin" /> -->
+        <!-- <plugin type="com.shinowit.mybatis.plugin.SelectByPagePlugin" /> -->
+        <!-- <plugin type="com.shinowit.mybatis.plugin.Struts2ActionPlugin" /> -->
 
-		<commentGenerator>
-			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
-			<property name="suppressAllComments" value="false" />
-		</commentGenerator>
-
-
-		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://192.168.26.124:3306/ds?useUnicode=true&amp;characterEncoding=UTF-8"
-			userId="root" password="root">
-			<property name="remarks" value="true" />
-			<property name="useInformationSchema" value="true" />
-		</jdbcConnection>
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="false"/>
+        </commentGenerator>
 
 
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://172.18.1.20:3306/lamic_ds_dev?useUnicode=true&amp;characterEncoding=UTF-8"
+                        userId="lamic_ds_dev" password="8up3rgnc3">
+            <property name="remarks" value="true"/>
+            <property name="useInformationSchema" value="true"/>
+        </jdbcConnection>
 
-		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer true，把JDBC DECIMAL 和 
-			NUMERIC 类型解析为java.math.BigDecimal -->
-		<javaTypeResolver>
-			<property name="forceBigDecimals" value="false" />
-		</javaTypeResolver>
-
-
-		<!-- targetProject:生成数据库对象 -->
-		<javaModelGenerator targetPackage="$package" targetProject="$root">
-			<!-- enableSubPackages:是否让schema作为包的后缀 -->
-			<property name="enableSubPackages" value="true" />
-			<!-- 从数据库返回的值被清理前后的空格 -->
-			<property name="trimStrings" value="true" />
-		</javaModelGenerator>
-
-		<!-- 基础的curl操作xml -->
-		<sqlMapGenerator targetPackage="$package" targetProject="$root">
-			<property name="enableSubPackages" value="false" />
-		</sqlMapGenerator>
-		<!-- 生成手功配置的xml 1,自己写的SQL可以放到此文件中,再次生成不会影响之的sql -->
-		<sqlMapGenerator targetPackage="$package" targetBody="false"
-			targetProject="$root">
-			<property name="enableSubPackages" value="true" />
-		</sqlMapGenerator>
-
-		<javaClientGenerator type="XMLMAPPER"	targetPackage="$package" targetProject="$root">
-			<property name="enableSubPackages" value="true" />
-			<property name="rootInterface" value="BaseMapper" />
-		</javaClientGenerator>
+        <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer true，把JDBC DECIMAL 和
+            NUMERIC 类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
 
 
-		<!--生成double 服务 ! -->
-		<!-- <dbxServiceGenerator type="" targetPackage="java" targetProject="$root"> 
-			<property name="enableSubPackages" value="true" /> </dbxServiceGenerator> 
-			<dbxServiceImpGenerator type="" targetPackage="java" targetProject="$root"> 
-			<property name="enableSubPackages" value="true" /> </dbxServiceImpGenerator> -->
+        <!-- targetProject:生成数据库对象 -->
+        <javaModelGenerator targetPackage="domain" targetProject="D:/ds/islamic/doc/code">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="true"/>
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
 
-		<!--生成dao 服务和接口 -->
-		<!-- <daoServiceGenerator type="" targetPackage="java" targetProject="$root"> 
-			<property name="enableSubPackages" value="true" /> <property name="rootInterface" 
-			value="IBaseService" /> </daoServiceGenerator> <daoServiceImpGenerator type="" 
-			targetPackage="java" targetProject="$root"> <property name="enableSubPackages" 
-			value="true" /> <property name="rootInterface" value="BaseServiceImp" /> 
-			</daoServiceImpGenerator> -->
+        <!-- 基础的curl操作xml -->
+        <sqlMapGenerator targetPackage="service" targetProject="D:/ds/islamic/doc/code">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        <!-- 生成手功配置的xml 1,自己写的SQL可以放到此文件中,再次生成不会影响之的sql -->
+        <sqlMapGenerator targetPackage="mapper.head" targetBody="true"
+                         targetProject="D:/ds/islamic/doc/code">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
 
-
-		<!-- <javaControlGenerator type="" targetPackage="java" targetProject="$root"> 
-			<property name="enableSubPackages" value="true" /> <property name="rootInterface" 
-			value="com.cnnct.rabbit.framework.BaseController" /> </javaControlGenerator> -->
-
-		<javaBusinessModelGenerator type=""	targetPackage="java.%s" targetProject="$root">
-			<property name="enableSubPackages" value="true" />
-			<property name="rootClass"
-				value="IRequest" />
-		</javaBusinessModelGenerator>
-
-		<!-- junit单元测试代码 -->
-		<!-- <javaJunitGenerator type="" targetPackage="java" targetProject="$root"> 
-			<property name="enableSubPackages" value="true" /> <property name="rootInterface" 
-			value="com.cnnct.rabbit.framework.BaseController" /> </javaJunitGenerator> -->
-		<!-- <uiGenerator type="EASYUI" targetPackage="release" targetProject="$root/webapp" 
-			implementationPackage="test"> <property name="enableBrowser" value="true" 
-			/> <property name="enableAppend" value="true" /> <property name="enableModify" 
-			value="true" /> <property name="enableTree" value="true" /> <property name="enableQueryForm" 
-			value="true" /> <property name="javaScriptPackage" value="true" /> <property 
-			name="javaScriptPackage" value="$root/webapp/resources/js" 
-			/> </uiGenerator> -->
-
-		<uiGenerator type="JDL" targetPackage="jhipster" targetProject="$root" implementationPackage="test">
-
-		</uiGenerator>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="mapper" targetProject="D:/ds/islamic/doc/code">
+            <property name="enableSubPackages" value="true"/>
+            <property name="rootInterface" value="BaseMapper"/>
+        </javaClientGenerator>
 
 
-		<!-- SELECT concat("<table catalog=\"\" tableName=\"",TABLE_NAME,"\" domainObjectName=\"Company\">\n<generatedKey 
-			column=\"id\" sqlStatement=\"Mysql\"/>\n</table>") FROM INFORMATION_SCHEMA.TABLES 
-			WHERE TABLE_SCHEMA = 'kenlen' -->
+        <!--生成double 服务 ! -->
+        <!-- <dbxServiceGenerator type="" targetPackage="java" targetProject="D:/ds/islamic/doc/code">
+            <property name="enableSubPackages" value="true" /> </dbxServiceGenerator>
+            <dbxServiceImpGenerator type="" targetPackage="java" targetProject="D:/ds/islamic/doc/code">
+            <property name="enableSubPackages" value="true" /> </dbxServiceImpGenerator> -->
+
+        <!--生成dao 服务和接口 -->
+        <!-- <daoServiceGenerator type="" targetPackage="java" targetProject="D:/ds/islamic/doc/code">
+            <property name="enableSubPackages" value="true" /> <property name="rootInterface"
+            value="IBaseService" /> </daoServiceGenerator> <daoServiceImpGenerator type=""
+            targetPackage="java" targetProject="D:/ds/islamic/doc/code"> <property name="enableSubPackages"
+            value="true" /> <property name="rootInterface" value="BaseServiceImp" />
+            </daoServiceImpGenerator> -->
 
 
-		<table catalog="" tableName="ds_acc_voucher_tmpl_attr"	domainObjectName="AccVoucherTmplAttr">
-			<generatedKey column="id" sqlStatement="Mysql" />
-		</table>
+        <!-- <javaControlGenerator type="" targetPackage="java" targetProject="D:/ds/islamic/doc/code">
+            <property name="enableSubPackages" value="true" /> <property name="rootInterface"
+            value="com.cnnct.rabbit.framework.BaseController" /> </javaControlGenerator> -->
 
-	</context>
+        <javaBusinessModelGenerator type="" targetPackage="java.vo.%s" targetProject="D:/ds/islamic/doc/code">
+            <property name="enableSubPackages" value="true"/>
+            <property name="rootClass"
+                      value="IRequest"/>
+        </javaBusinessModelGenerator>
+
+        <!-- junit单元测试代码 -->
+        <!-- <javaJunitGenerator type="" targetPackage="java" targetProject="D:/ds/islamic/doc/code">
+            <property name="enableSubPackages" value="true" /> <property name="rootInterface"
+            value="com.cnnct.rabbit.framework.BaseController" /> </javaJunitGenerator> -->
+        <!-- <uiGenerator type="EASYUI" targetPackage="release" targetProject="D:/ds/islamic/doc/code/webapp"
+            implementationPackage="test"> <property name="enableBrowser" value="true"
+            /> <property name="enableAppend" value="true" /> <property name="enableModify"
+            value="true" /> <property name="enableTree" value="true" /> <property name="enableQueryForm"
+            value="true" /> <property name="javaScriptPackage" value="true" /> <property
+            name="javaScriptPackage" value="D:/ds/islamic/doc/code/webapp/resources/js"
+            /> </uiGenerator> -->
+
+        <uiGenerator type="JDL" targetPackage="jhipster" targetProject="D:/ds/islamic/doc/code"
+                     implementationPackage="test">
+
+        </uiGenerator>
+
+
+        <!-- SELECT concat("<table catalog=\"\" tableName=\"",TABLE_NAME,"\" domainObjectName=\"Company\">\n<generatedKey
+            column=\"id\" sqlStatement=\"Mysql\"/>\n</table>") FROM INFORMATION_SCHEMA.TABLES
+            WHERE TABLE_SCHEMA = 'kenlen' -->
+
+
+        <table catalog="" tableName="ds_accounting_item" domainObjectName="AccountingItem">
+            <generatedKey column="id" sqlStatement="Mysql"/>
+        </table>
+
+        <table catalog="" tableName="test_1" domainObjectName="FanTest">
+            <generatedKey column="id" sqlStatement="Mysql"/>
+        </table>
+
+    </context>
 
 </generatorConfiguration>  			
