@@ -13,6 +13,7 @@ jhipster项目 实体生成器.
 本工程需要依赖mybatis-generator-core.jar,lib目录已收录，
 需要源码请于下地址下载　https://github.com/hackpros/mybatis-generator-core.git
 # 环境配置
+mybatis-generator的基本配置:https://www.cnblogs.com/pixy/p/5038275.html
 *** 打开`/resources/jeg-mysql.xml`这个文件
 * 配置生成目录
 ><xml:variable name="root" select="D:/ds/islamic/doc/code" />
@@ -82,3 +83,5 @@ jhipster项目 实体生成器.
 个人域名<br>
 QQ群:
 # 如果本文可以带给你一点帮助，请不要吝啬一个star　:)
+
+
