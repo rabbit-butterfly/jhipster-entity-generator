@@ -17,12 +17,12 @@ mybatis-generator的基本配置:https://www.cnblogs.com/pixy/p/5038275.html
 
 
 *** 打开`/resources/generatorConfig.properties`配置数据库本文件目录包名
-* 数据库连接参数
+* 数据库连接参数　　<br>
 jdbc.driver=com.mysql.jdbc.Driver 　<br>
 jdbc.url=jdbc:mysql://localhost:3306/dbname?useUnicode=true&characterEncoding=utf-8 　<br>
 jdbc.username=uname 　　<br>
 jdbc.password=pwd 　　<br>
-* 包路径配置
+* 包路径配置　　<br>
 model.package=com.my.blog.website.modal.Vo　<br>
 dao.package=com.my.blog.website.dao　<br>
 xml.mapper.package=com.my.blog.website.dao　<br>
