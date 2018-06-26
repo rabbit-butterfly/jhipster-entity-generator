@@ -14,11 +14,21 @@ jhipster项目 实体生成器.
 需要源码请于下地址下载　https://github.com/hackpros/mybatis-generator-core.git
 # 环境配置
 mybatis-generator的基本配置:https://www.cnblogs.com/pixy/p/5038275.html
-*** 打开`/resources/jeg-mysql.xml`这个文件
-* 配置生成目录
-><xml:variable name="root" select="D:/ds/islamic/doc/code" />
-* 配置生成包名
-><xml:variable name="package" select="com.fan" />
+
+
+*** 打开`/resources/generatorConfig.properties`配置数据库本文件目录包名
+# 数据库连接参数
+jdbc.driver=com.mysql.jdbc.Driver 
+jdbc.url=jdbc:mysql://localhost:3306/dbname?useUnicode=true&characterEncoding=utf-8 
+jdbc.username=uname 
+jdbc.password=pwd 
+# 包路径配置
+model.package=com.my.blog.website.modal.Vo
+dao.package=com.my.blog.website.dao
+xml.mapper.package=com.my.blog.website.dao
+target.project=D:/jhipster/My-Blog/src/main/java
+
+
 
 * 配置生成mybaits对象
 >`<javaModelGenerator targetPackage="$package"   targetProject="$root">
@@ -54,9 +64,9 @@ mybatis-generator的基本配置:https://www.cnblogs.com/pixy/p/5038275.html
 </javaBusinessModelGenerator>`
 
 ##  配置生成jhipster jdl 
->`<uiGenerator type="JDL" targetPackage="jhipster"
-        targetProject="$root" implementationPackage="test">
-   </uiGenerator>`
+>`<uiGenerator type="JDL"  targetProject="${target.project}"
+  		targetProject="$root" implementationPackage="test">
+  	</uiGenerator>
    
 ##  配置生成的表
    将这条SQL的查询查果复制到文件尾部
@@ -71,11 +81,8 @@ mybatis-generator的基本配置:https://www.cnblogs.com/pixy/p/5038275.html
 ## 生成jh命令生成基础类
 > jhipsert import-jdl allEnt.jh
 
-* 生成jhipster jdl 配置文件
-> <uiGenerator type="JDL" targetPackage="jhipster"
-		targetProject="$root" implementationPackage="test">
-	</uiGenerator>
-##　最后可以将文件拷贝到项目中
+
+##　最后可以将文件拷贝到项目中也可直接生成到项目中
 
 # 关于我
 欢迎交流问题，可加2205380769，一起探讨交流问题<br>

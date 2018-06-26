@@ -2,19 +2,14 @@
 <!DOCTYPE generatorConfiguration
         SYSTEM
         "file:///D:/jhipster/mybatis-tools/mybatis-generator-core/src/main/java/org/mybatis/generator/config/xml/mybatis-generator-config_2_0.dtd">
-
-
-<!-- 如果此处变量报错，请直接配置各节点targetPackage， targetProject标签
-<xml:variable name="root" select="D:/ds/islamic/doc/code" />
-<xml:variable name="package" select="com.fan.ds.account" />
--->
-
-
 <generatorConfiguration>
     <!-- classPathEntry:数据库的JDBC驱动的jar包地址 -->
     <!-- <classPathEntry location="f:\lib\ojdbc14.jar" /> -->
     <!-- <classPathEntry location="/lib/mysql-connector-java-5.1.18-bin.jar"
         /> -->
+    <!--<properties url="${mybatis.generator.generatorConfig.properties}"/>--><!--maven pom文件properties中配置的属性-->
+
+    <properties resource="generatorConfig.properties"/>
 
     <context id="DB2Tables" targetRuntime="MyBatis3">
 
@@ -38,8 +33,8 @@
 
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://172.18.1.20:3306/lamic_ds_dev?useUnicode=true&amp;characterEncoding=UTF-8"
-                        userId="lamic_ds_dev" password="8up3rgnc3">
+                        connectionURL="jdbc:mysql://192.168.26.124:3306/tale?useUnicode=true&amp;characterEncoding=UTF-8"
+                        userId="root" password="root">
             <property name="remarks" value="true"/>
             <property name="useInformationSchema" value="true"/>
         </jdbcConnection>
@@ -52,7 +47,7 @@
 
 
         <!-- targetProject:生成数据库对象 -->
-        <javaModelGenerator targetPackage="domain" targetProject="D:/ds/islamic/doc/code">
+        <javaModelGenerator targetPackage="${model.package}" targetProject="${target.project}">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="true"/>
             <!-- 从数据库返回的值被清理前后的空格 -->
@@ -60,74 +55,67 @@
         </javaModelGenerator>
 
         <!-- 基础的curl操作xml -->
-        <sqlMapGenerator targetPackage="service" targetProject="D:/ds/islamic/doc/code">
+        <sqlMapGenerator targetPackage="service" targetProject="${target.project}">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
         <!-- 生成手功配置的xml 1,自己写的SQL可以放到此文件中,再次生成不会影响之的sql -->
-        <sqlMapGenerator targetPackage="mapper.head" targetBody="true"
-                         targetProject="D:/ds/islamic/doc/code">
+        <sqlMapGenerator targetPackage="${xml.mapper.package}" targetBody="true"
+                         targetProject="${target.project}">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="mapper" targetProject="D:/ds/islamic/doc/code">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${xml.mapper.package}"
+                             targetProject="${target.project}">
             <property name="enableSubPackages" value="true"/>
             <property name="rootInterface" value="BaseMapper"/>
         </javaClientGenerator>
 
 
         <!--生成double 服务 ! -->
-        <!-- <dbxServiceGenerator type="" targetPackage="java" targetProject="D:/ds/islamic/doc/code">
+        <!-- <dbxServiceGenerator type="" targetPackage="java" targetProject="D:/jhipster/jhipster-demo-master/doc/code">
             <property name="enableSubPackages" value="true" /> </dbxServiceGenerator>
-            <dbxServiceImpGenerator type="" targetPackage="java" targetProject="D:/ds/islamic/doc/code">
+            <dbxServiceImpGenerator type="" targetPackage="java" targetProject="D:/jhipster/jhipster-demo-master/doc/code">
             <property name="enableSubPackages" value="true" /> </dbxServiceImpGenerator> -->
 
         <!--生成dao 服务和接口 -->
-        <!-- <daoServiceGenerator type="" targetPackage="java" targetProject="D:/ds/islamic/doc/code">
+        <!-- <daoServiceGenerator type="" targetPackage="java" targetProject="D:/jhipster/jhipster-demo-master/doc/code">
             <property name="enableSubPackages" value="true" /> <property name="rootInterface"
             value="IBaseService" /> </daoServiceGenerator> <daoServiceImpGenerator type=""
-            targetPackage="java" targetProject="D:/ds/islamic/doc/code"> <property name="enableSubPackages"
+            targetPackage="java" targetProject="D:/jhipster/jhipster-demo-master/doc/code"> <property name="enableSubPackages"
             value="true" /> <property name="rootInterface" value="BaseServiceImp" />
             </daoServiceImpGenerator> -->
 
 
-        <!-- <javaControlGenerator type="" targetPackage="java" targetProject="D:/ds/islamic/doc/code">
+        <!-- <javaControlGenerator type="" targetPackage="java" targetProject="D:/jhipster/jhipster-demo-master/doc/code">
             <property name="enableSubPackages" value="true" /> <property name="rootInterface"
             value="com.cnnct.rabbit.framework.BaseController" /> </javaControlGenerator> -->
 
-        <javaBusinessModelGenerator type="" targetPackage="java.vo.%s" targetProject="D:/ds/islamic/doc/code">
+        <javaBusinessModelGenerator type="" targetPackage="java.vo.%s"
+                                    targetProject="${target.project}">
             <property name="enableSubPackages" value="true"/>
             <property name="rootClass"
                       value="IRequest"/>
         </javaBusinessModelGenerator>
 
         <!-- junit单元测试代码 -->
-        <!-- <javaJunitGenerator type="" targetPackage="java" targetProject="D:/ds/islamic/doc/code">
+        <!-- <javaJunitGenerator type="" targetPackage="java" targetProject="D:/jhipster/jhipster-demo-master/doc/code">
             <property name="enableSubPackages" value="true" /> <property name="rootInterface"
             value="com.cnnct.rabbit.framework.BaseController" /> </javaJunitGenerator> -->
-        <!-- <uiGenerator type="EASYUI" targetPackage="release" targetProject="D:/ds/islamic/doc/code/webapp"
+        <!-- <uiGenerator type="EASYUI" targetPackage="release" targetProject="D:/jhipster/jhipster-demo-master/doc/code/webapp"
             implementationPackage="test"> <property name="enableBrowser" value="true"
             /> <property name="enableAppend" value="true" /> <property name="enableModify"
             value="true" /> <property name="enableTree" value="true" /> <property name="enableQueryForm"
             value="true" /> <property name="javaScriptPackage" value="true" /> <property
-            name="javaScriptPackage" value="D:/ds/islamic/doc/code/webapp/resources/js"
+            name="javaScriptPackage" value="D:/jhipster/jhipster-demo-master/doc/code/webapp/resources/js"
             /> </uiGenerator> -->
 
-        <uiGenerator type="JDL" targetPackage="jhipster" targetProject="D:/ds/islamic/doc/code"
+        <uiGenerator type="JDL" targetPackage="jhipster" targetProject="${target.project}"
                      implementationPackage="test">
 
         </uiGenerator>
 
 
-        <!-- SELECT concat("<table catalog=\"\" tableName=\"",TABLE_NAME,"\" domainObjectName=\"Company\">\n<generatedKey
-            column=\"id\" sqlStatement=\"Mysql\"/>\n</table>") FROM INFORMATION_SCHEMA.TABLES
-            WHERE TABLE_SCHEMA = 'kenlen' -->
-
-
-        <table catalog="" tableName="ds_accounting_item" domainObjectName="AccountingItem">
-            <generatedKey column="id" sqlStatement="Mysql"/>
-        </table>
-
-        <table catalog="" tableName="test_1" domainObjectName="FanTest">
+        <table catalog="" tableName="t_film" domainObjectName="Film">
             <generatedKey column="id" sqlStatement="Mysql"/>
         </table>
 
