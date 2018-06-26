@@ -16,7 +16,7 @@ jhipster项目 实体生成器.
 mybatis-generator的基本配置:https://www.cnblogs.com/pixy/p/5038275.html
 
 
-*** 打开`/resources/generatorConfig.properties`配置数据库本文件目录包名
+*** 打开`/resources/generatorConfig.properties`配置数据库及文件目录、包名
 * 数据库连接参数　　<br>
 jdbc.driver=com.mysql.jdbc.Driver 　<br>
 jdbc.url=jdbc:mysql://localhost:3306/dbname?useUnicode=true&characterEncoding=utf-8 　<br>
@@ -44,7 +44,7 @@ target.project=D:/jhipster/My-Blog/src/main/java　<br>
     <property name="enableSubPackages" value="false" />
 </sqlMapGenerator>`
 
-* 配置生成手功配置的xml 1,自己写的SQL可以放到此文件中,再次生成不会影响之的sql -->
+* 配置生成手功配置的xml 1,自己写的SQL可以放到此文件中,再次生成不会影响之前的sql -->
 >`<sqlMapGenerator targetPackage="$package" targetBody="false"
     targetProject="$root">
     <property name="enableSubPackages" value="true" />
