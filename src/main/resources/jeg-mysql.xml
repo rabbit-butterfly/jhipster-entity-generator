@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration
         SYSTEM
-        "file:///D:/jhipster/mybatis-tools/mybatis-generator-core/src/main/java/org/mybatis/generator/config/xml/mybatis-generator-config_2_0.dtd">
+        "file:///D:/jh/jhipster-entity-generator/src/main/resources/mybatis-generator-config_2_0.dtd">
+
 <generatorConfiguration>
     <!-- classPathEntry:数据库的JDBC驱动的jar包地址 -->
     <!-- <classPathEntry location="f:\lib\ojdbc14.jar" /> -->
@@ -33,8 +34,8 @@
 
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.26.124:3306/tale?useUnicode=true&amp;characterEncoding=UTF-8"
-                        userId="root" password="root">
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}" password="${jdbc.password}">
             <property name="remarks" value="true"/>
             <property name="useInformationSchema" value="true"/>
         </jdbcConnection>
@@ -109,15 +110,31 @@
             name="javaScriptPackage" value="D:/jhipster/jhipster-demo-master/doc/code/webapp/resources/js"
             /> </uiGenerator> -->
 
+
+       <!-- SELECT concat("<table catalog=\"\" tableName=\"",TABLE_NAME,"\" domainObjectName=\"Company\">\n<generatedKey column=\"id\" sqlStatement=\"Mysql\"/>\n</table>") FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'kenlen'
+    -->
         <uiGenerator type="JDL" targetPackage="jhipster" targetProject="${target.project}"
                      implementationPackage="test">
-
         </uiGenerator>
 
-
-        <table catalog="" tableName="t_film" domainObjectName="Film">
+        <table catalog="" tableName="tb_promotion" domainObjectName="Promotion">
             <generatedKey column="id" sqlStatement="Mysql"/>
         </table>
+        <table catalog="" tableName="tb_promotion_email_template" domainObjectName="PromotionTmp">
+            <generatedKey column="id" sqlStatement="Mysql"/>
+        </table>
+        <table catalog="" tableName="tb_rl_user_promotion" domainObjectName="PromotionUser">
+            <generatedKey column="id" sqlStatement="Mysql"/>
+        </table>
+        <table catalog="" tableName="tb_user" domainObjectName="Customer">
+            <generatedKey column="id" sqlStatement="Mysql"/>
+        </table>
+        <table catalog="" tableName="tb_user_gift" domainObjectName="CustomerGift">
+            <generatedKey column="id" sqlStatement="Mysql"/>
+        </table>
+
+
+
 
     </context>
 
