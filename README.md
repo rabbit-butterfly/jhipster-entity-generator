@@ -90,6 +90,6 @@ target.project=D:/jhipster/My-Blog/src/main/java　<br>
 我的博客地址<br>
 个人域名<br>
 QQ群:
-# 如果本文可以带给你一点帮助，请不要吝啬一个star　:)
+# 如果可以帮助到您，请给个星　:)
 
 
